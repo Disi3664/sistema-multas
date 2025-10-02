@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api-empresa:
+    build: .
+    ports:
+      - "3001:3001"
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - empresa-network
+
+networks:
+  empresa-network:
+    driver: bridge
